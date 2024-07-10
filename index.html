@@ -58,13 +58,14 @@
       } else {
         // Clear session storage on logout
         sessionStorage.removeItem('loggedIn');
-      }
 
-      // Prevent going back to logout page after logout
-      history.pushState(null, null, location.href);
-      window.onpopstate = function () {
-        history.go(1);
-      };
+        // Prevent going back to logout page after logout
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+          history.go(1);
+        };
+      }
     </script>
 </body>
 </html>
+
