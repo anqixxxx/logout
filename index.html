@@ -51,8 +51,8 @@
     </div>
 
     <script>
-      // Clear session storage on logout
-      sessionStorage.removeItem('loggedIn');
+      // Clear local storage on logout
+      localStorage.removeItem('loggedIn');
 
       // Prevent going back to previous pages after logout
       history.pushState(null, null, location.href);
@@ -67,4 +67,5 @@
     </script>
 </body>
 </html>
+
 
