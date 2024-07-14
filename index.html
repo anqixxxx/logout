@@ -51,20 +51,19 @@
     </div>
 
     <script>
-      // Check if user is logged in
-      if (!sessionStorage.getItem('loggedIn')) {
-        // Redirect to login page if not logged in
-        window.location.href = 'https://html-starter-six-livid.vercel.app/'; // Replace with your actual login page URL
-      } else {
-        // Clear session storage on logout
-        sessionStorage.removeItem('loggedIn');
+      // Clear session storage on logout
+      sessionStorage.removeItem('loggedIn');
 
-        // Prevent going back to logout page after logout
-        history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-          history.go(1);
-        };
-      }
+      // Prevent going back to previous pages after logout
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+        history.go(1);
+      };
+
+      // Redirect to login page after logout
+      setTimeout(function() {
+        window.location.href = 'https://html-starter-six-livid.vercel.app/'; // Replace with your actual login page URL
+      }, 1000); // Redirect after 1 second (adjust delay as needed)
     </script>
 </body>
 </html>
