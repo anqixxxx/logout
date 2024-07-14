@@ -51,21 +51,16 @@
     </div>
 
     <script>
-      // Clear local storage on logout
-      localStorage.removeItem('loggedIn');
+    function redirect() {
+      // Clear the session
+      sessionStorage.clear();
 
-      // Prevent going back to previous pages after logout
-      history.pushState(null, null, location.href);
-      window.onpopstate = function () {
-        history.go(1);
-      };
+      // Redirect to the login page
+      window.location.href = 'https://html-starter-six-livid.vercel.app/';
+    }
 
-      // Redirect to login page after logout
-      setTimeout(function() {
-        window.location.href = 'https://html-starter-six-livid.vercel.app/'; // Replace with your actual login page URL
-      }, 1000); // Redirect after 1 second (adjust delay as needed)
-    </script>
+    // Call the redirect function immediately when the page loads
+    redirect();
+  </script>
 </body>
 </html>
-
-
