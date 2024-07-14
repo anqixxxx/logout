@@ -51,16 +51,22 @@
     </div>
 
     <script>
-    function redirect() {
-      // Clear the session
-      sessionStorage.clear();
+      function redirect() {
+        // Clear the session
+        sessionStorage.clear();
 
-      // Redirect to the login page
-      window.location.href = 'https://html-starter-six-livid.vercel.app/';
-    }
+        // Redirect to the login page
+        window.location.href = 'https://html-starter-six-livid.vercel.app/';
+      }
 
-    // Call the redirect function immediately when the page loads
-    redirect();
-  </script>
+      // Call the redirect function immediately when the page loads
+      redirect();
+
+      // Prevent going back to previous pages after logout
+      window.history.pushState(null, null, window.location.href);
+      window.onpopstate = function () {
+        window.history.go(1);
+      };
+    </script>
 </body>
 </html>
