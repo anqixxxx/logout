@@ -56,43 +56,29 @@
   </style>
 </head>
 <body>
-    <div class="container">
-      <div class="header">
-        &#10084; <!-- Heart Icon -->
-        <h1>PulsePals - Logout</h1>
-        <p>You have successfully logged out.</p>
-        <button class="btn" onclick="login()">Login Again</button>
-      </div>
+  <div class="container">
+    <div class="header">
+      &#10084; <!-- Heart Icon -->
+      <h1>PulsePals - Logout</h1>
+      <p>You have successfully logged out.</p>
+      <button class="btn" onclick="login()">Login Again</button>
     </div>
+  </div>
 
-    <script>
-      //function redirect() {
-        // Clear the session
-        //sessionStorage.clear();
+  <script>
+    // Clear the session storage
+    sessionStorage.clear();
 
-        // Redirect to the login page
-        //window.location.href = 'https://html-starter-six-livid.vercel.app/';
-      //}
+    // Function to redirect to login page
+    function login() {
+      window.location.href = 'https://html-starter-six-livid.vercel.app/';
+    }
 
-      // Prevent going back to previous pages after logout
-      window.history.pushState(null, null, window.location.href);
-      window.onpopstate = function () {
-        window.history.go(1);
-      };
-
-      function login() {
-        // Redirect to the login page
-        window.location.href = 'https://html-starter-six-livid.vercel.app/';
-      }
-
-      // Call the redirect function immediately when the page loads
-      //redirect();
-
-      // Prevent going back to previous pages after logout
-      //window.history.pushState(null, null, window.location.href);
-      //window.onpopstate = function () {
-        //window.history.go(1);
-      //};
-    </script>
+    // Prevent going back to previous pages after logout
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function () {
+      window.history.go(1);
+    };
+  </script>
 </body>
 </html>
