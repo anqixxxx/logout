@@ -75,11 +75,13 @@
     }
 
     // Prevent going back to previous pages after logout
-    window.history.pushState(null, null, window.location.href);
+    history.pushState(null, null, location.href);
     window.addEventListener('popstate', function () {
-      window.history.pushState(null, null, window.location.href);
+      history.pushState(null, null, location.href);
+      // Optionally, you can redirect to the login page if the user tries to go back
+      window.location.href = 'https://html-starter-six-livid.vercel.app/';
     });
-
+    
   </script>
 </body>
 </html>
