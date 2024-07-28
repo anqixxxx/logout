@@ -75,10 +75,10 @@
     }
 
     // Prevent going back to previous pages after logout
-    window.history.replaceState(null, null, window.location.href);
-    window.onpopstate = function () {
-      window.location.href = 'https://html-starter-six-livid.vercel.app/';
-    };
+    window.history.pushState(null, null, window.location.href);
+    window.addEventListener('popstate', function () {
+      window.history.pushState(null, null, window.location.href);
+    });
 
   </script>
 </body>
