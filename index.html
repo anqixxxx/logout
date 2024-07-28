@@ -72,19 +72,29 @@
     // Clear the session storage
     sessionStorage.clear();
 
+    // Clear authentication cookies (example for common cookies)
+    document.cookie = "auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
     // Function to redirect to login page
     function login() {
       window.location.href = 'https://html-starter-six-livid.vercel.app/';
     }
 
-    // Prevent going back to previous pages after logout
-    history.pushState(null, null, location.href);
+    // Redirect to homepage if trying to navigate back
+    const homepage = 'https://yourhomepage.com'; // Replace with your homepage URL
+
+    // Ensure the current state is replaced and prevent back navigation
+    window.history.replaceState(null, null, window.location.href);
+    window.history.pushState(null, null, window.location.href);
+
     window.addEventListener('popstate', function () {
-      history.pushState(null, null, location.href);
-      // Optionally, you can redirect to the login page if the user tries to go back
-      window.location.href = 'https://html-starter-six-livid.vercel.app/';
+      window.location.href = homepage; // Redirect to the homepage
     });
-    
+
+    // Detect page unload and ensure redirect if necessary
+    window.addEventListener('unload', function () {
+      window.location.href = homepage;
+    });
   </script>
 </body>
 </html>
